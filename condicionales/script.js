@@ -49,6 +49,8 @@ document.write("<br>")
 *
 */
 
+
+//Declaramos las variables y creamos los prompts para interactuar con el usuario
 let dineroAntonio = prompt("¿Cuánto dinero tiene Antonio?");
 let antonio = dineroAntonio;
 let dineroEnrique = prompt("¿Cuánto dinero tiene Enrique?");
@@ -56,6 +58,7 @@ let enrique = dineroEnrique;
 let dineroCoque = prompt("¿Cuánto dinero tiene Coque?");
 let coque = dineroCoque;
 
+//Creamos una lista con los precios
 document.write("<h1> Lista de precios </h1>");
 document.write("<p>Helado de agua ------------>  0.5€</p>");
 document.write("<p>Helado de crema ----------->  1€</p>");
@@ -65,6 +68,7 @@ document.write("<p>Helado de limon ----------->  1.9€</p>");
 document.write("<p>Sandwich helado maxibone -->  2.3€</p>");
 document.write("<p>Corneto de lima y limon --->  2.5€</p>");
 
+// Creamos mas variables
 let heladoAgua = 0.5;
 let heladoCrema = 1;
 let heladoChocolate = 1.7;
@@ -73,27 +77,64 @@ let heladoLimon = 1.9;
 let sandwichHelado = 2.3;
 let cornetoLimon = 2.5;
 let resultado = 0;
-let calcularVueltas = 0;
+let respuestaAntonio = "";
+let compararRespuestaAntonio = "";
 
+//Decimos al usuario cual es nuestro helado mas caro
 alert("El helado mas caro que tenemos es el corneto de lima y limon que vale  " + cornetoLimon + "€");
 
 // Apartado de Antonio
+// Creamos las condiciones por donde va a pasar el programa
 if (dineroAntonio >= cornetoLimon) {
     alert("Puedes comprarte cualquier helado");
-    let respuestaAntonio = prompt("Escribe el precio del helado que quieras");
-    calcularVueltas = respuestaAntonio;
+
+    //Guardamos la respuesta de antonio
+    respuestaAntonio = prompt("Escribe el nombre del helado que quieras:");
+
     // Este proceso solo lo haré en el primer paso porque ir añadiendolo a todos los casos sería demasiado tedioso
     // Y tengo que continuar con el tutorial
-    if (respuestaAntonio == calcularVueltas) {
-        resultado = dineroAntonio - calcularVueltas;
+    if (respuestaAntonio == "corneto de lima y limon") {
+        resultado = dineroAntonio - cornetoLimon;
 
-        if (calcularVueltas == 2.3) {
-            alert("Aquí tienes el sandwich helado, las vueltas son " + resultado +"€.")
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+    } 
+    else if(respuestaAntonio == "sandwich helado") {
+        resultado = dineroAntonio - sandwichHelado;
 
-        }
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
 
-    } else {
-        alert("Te has equivocado con el precio del helado.")
+    }
+    else if(respuestaAntonio == "helado de limon") {
+        resultado = dineroAntonio - heladoLimon;
+
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+
+    }
+    else if(respuestaAntonio == "helado de fresa") {
+        resultado = dineroAntonio - heladoFresa;
+
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+
+    }
+    else if(respuestaAntonio == "helado de chocolate") {
+        resultado = dineroAntonio - heladoChocolate;
+
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+
+    }
+    else if(respuestaAntonio == "helado de crema") {
+        resultado = dineroAntonio - heladoCrema;
+
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+
+    }
+    else if(respuestaAntonio == "helado de agua") {
+        resultado = dineroAntonio - heladoAgua;
+
+        alert("Aquí tienes tu " + respuestaAntonio + ", las vueltas son " + resultado +"€.")
+    }
+    else {
+        alert("Lo siento, nosotros no tenemos ese helado.")
     }
 } 
 else if (dineroAntonio >= sandwichHelado) {
