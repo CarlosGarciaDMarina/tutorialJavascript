@@ -37,5 +37,32 @@ numero1--; //Resta 1
 resultado = numero1;
 alert(resultado); 
 
+document.write("<br>");
+
+
+/*
+*   *** OERADORES LÓGICOS ***   
+*   
+*   	Equality                (a == b)
+*       Inequality              (a != b)
+*       Identity                (a === b) *Mira tambien si el tipo de dato es el mismo, por ejemplo: que ambos sean strings*
+*       Non-identity            (a !== b)
+*       Grater than             (a > b)
+*       Greater than or equal   (a >= b)
+*       Less than               (a > b)
+*       Less than or equal      (a <= b)
+*
+*/
+
+let numero3 = 23;
+let numero4 = 13;
+let texto   = "23";
+let texto2  = "Hola";
+
+document.write(texto === numero3);
+document.write("<br>");
+
+
+
 
 

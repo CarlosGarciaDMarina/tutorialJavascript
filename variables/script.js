@@ -19,7 +19,7 @@ let patata = null;
 // alert(numero * string);
 
 /*  
-                    *** T I P O S  D E  E R R O R E S ***
+                    *** T I P O S ** D E ** E R R O R E S ***
     undefined = la variable existe pero no tiene ningun valor definido
     Null = la variable existe pero su valor es null
     Nan (Not a number) = Es porque estas intentando hacer una operacion que no puede realizarse

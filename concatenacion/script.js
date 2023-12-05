@@ -26,6 +26,11 @@ document.write(numero);
 /* 
  *          Concatenar con baktips 
  * De esta forma es como mas errores nos vamos a evitar
+ *   - Sin bakticks: "1\n\
+ *                       linea 2"
+ * 
+ *  - Con bakticks: ´´´´ línea 1 |
+ *                        línea 2`
 */
 
 let nombre = "Carlos García";
