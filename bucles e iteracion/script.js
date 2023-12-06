@@ -33,7 +33,7 @@ while (num1 < 10) {
 
 //Legibilidad del documento
 document.write("<br>");
-document.write("<b>Do-While</b>");
+document.write("<b>Do - While</b>");
 document.write("<br>");
 
 //Variable
@@ -77,10 +77,70 @@ document.write("<br>");
 
 //Legibilidad del documento
 document.write("<br>");
-document.write("<b>For in</b>");
+document.write("<b>For y continue</b>");
 document.write("<br>");
 
 for (let i = 0; i < 10; i++) {
+    if(i == 6) {
+        document.write("Damos un saltito. <br>")
+        continue;
+    }
     document.write("i -> " + i + "<br>");
-    
+
 }
+
+//Legibilidad del documento
+document.write("<br>");
+document.write("<b>Ejemplo con un array: </b>");
+document.write("<br>");
+
+//Array de ejemplo
+libros = ["Por qué fracasan los países", "Enquiridion", "El principito", "El principe"];
+
+//Creamos un for que recorra el array y lo muestre por pantalla
+for (i = 0; i < libros.length; i++) {
+    const element = libros[i];
+    document.write(element + "<br>"); //Agregamos un salto de linea para mejorar la legibilidad
+}
+
+//Legibilidad del documento
+document.write("<br>");
+document.write("<b>For in</b>");
+document.write("<br>");
+
+//Vamos a crear un array
+let animales =["Gato", "Perro", "Tiranosaurio Rex"];
+
+for (const animal in animales) {
+    document.write(animal + "<br>");
+}
+
+//Legibilidad del documento
+document.write("<br>");
+document.write("<b>For of</b>");
+document.write("<br>");
+
+for (const animal of animales) {
+    document.write(animal + "<br>");
+}
+
+document.write("<br>");
+document.write("<b>For label</b>");
+document.write("<br>");
+
+array1 = ["Coque", "Enrique", "Antonio"];
+array2 = ["Vicenta", "Marisa", array1, "Concha"];
+
+forComunidad:
+for (let array in array2) {
+    if(array == 2){
+        for (array of array1) {
+            document.write(array + "<br>");
+            continue forComunidad;
+        }
+    }else{
+        document.write(array2[array] + "<br>");
+    }      
+}
+
+
