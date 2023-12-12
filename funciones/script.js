@@ -88,8 +88,7 @@ saludamos(nombre);
 
 
 /*
-*
-*                               PRACTICA
+*                               PRACTICA 1
 *
 *   Un joven muy afortunado logró ganar la loteria... este joven decidiói irse de fiesta para celebrarlo, compró una maquina
 *   máquina que edja pasar solamente a los mayores de edad,..
