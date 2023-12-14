@@ -78,23 +78,60 @@ class telefono {
         this.resolucion = resolucion;
         this.camara = camara;
         this.ram = ram;
+        this.encendido = false;
 
     }
 
     encender() {
-        document.write(`El telefono de la marca ${this.marca} se acaba de encender.`);
+        if (this.encendido == false) {
+            document.write(`El telefono de la marca ${this.marca} se acaba de encender. <br>`);
+            this.encendido = true;
+
+        } else {
+            document.write(`El telefono de la marca ${this.marca} ya esta encendido. <br>`);
+
+        }
+    }
+
+    apagar() {
+        if (this.encendido == true) {
+            document.write(`El telefono de la marca ${this.marca} se acaba de apagar. <br>`);
+            this.encendido = false;
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} ya esta apagado, enciendelo si quieres usarlo. <br>`);
+
+        }
     }
 
     reiniciar() {
-        document.write(`El telefono de la marca ${this.marca} se este reiniciando.`)
+        if (this.encendido == true) {
+            document.write(`El telefono de la marca ${this.marca} se este reiniciando. <br>`)
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} esta apagado y no se puede reiniciar. <br>`);
+
+        }
     }
 
     tomarFoto() {
-        document.write(`¡Click!`);
+        if (this.encendido == true) {
+            document.write(`¡Click! <br>`);
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} esta apagado y no puede hacer fotos. <br>`);
+
+        }
     }
 
     grabar() {
-        document.write(`yiiiiiiih *grabando*`);
+        if (this.encendido == true) {
+            document.write(`yiiiiiiih *grabando* <br>`);
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} esta apagado y no puede hacer grabar. <br>`);
+
+        }
     }
 
     info() {
@@ -104,12 +141,58 @@ class telefono {
 
 }
 
-const neoGT3 = new telefono("realme", "amarillo", 250, 900, "buena", 16);
-const maxPro15 = new telefono("iphone", "gris", 150, 1900, "la mejor", 32);
-const galaxyS23 = new telefono("samsung", "azul", 100, 1300, "muy buena", 32);
+
+class altaGama extends telefono {
+    constructor(marca, color, peso, resolucion, camara, ram, camaraExtra){
+        super(marca, color, peso, resolucion, camara, ram);
+        this.encendido = false;
+        this.camaraExtra = camaraExtra;
+    }
+
+    camaraSuperLenta(){
+        if (this.encendido == true) {
+            document.write(`yiiiiiiihhhh *grabando a camara super lenta* <br>`);
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} esta apagado y no puede hacer grabar. <br>`);
+
+        }
+    }
+
+    reconocimientoFacial() {
+        if (this.encendido == true) {
+            document.write(`yiiiiiiih *Analizando la cara* <br>`);
+            document.write(`Has pasado el check.`)
+            
+        } else {
+            document.write(`El telefono de la marca ${this.marca} esta apagado y no puede hacer el reconomiento facil. <br>`);
+
+        }
+    }
+
+    info() {
+        document.write(`El telefono de la marca ${this.marca} es de color ${this.color}, pesa ${this.peso}gr, la cámara es ${this.camara} y 
+                        tiene una resolucion de ${this.resolucion}mpx y, por último, tiene ${this.ram}GB de RAM y su 2ª camara es 
+                        ${this.camaraExtra}.<br><br>`);
+    }
+
+}
+
+
+
+const neoGT3 = new telefono("realme", "amarillo", 250, 900, "HD", 16);
+const maxPro15 = new altaGama("iphone", "gris", 150, 1900, "4K", 32, "Full HD");
+const galaxyS23 = new telefono("samsung", "azul", 100, 1300, "Full HD", 32);
 
 neoGT3.info();
 maxPro15.info();
 galaxyS23.info();
 
+neoGT3.apagar();
+neoGT3.encender();
 
+neoGT3.reiniciar();
+neoGT3.tomarFoto();
+neoGT3.grabar();
+
+maxPro15.info();
