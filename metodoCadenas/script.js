@@ -73,5 +73,65 @@ document.write("<br>");
 document.write(nombres + "<br>");
 nombres.splice(0, 1, "Juan");
 document.write(nombres);
+document.write("<br>");
+document.write("<br>");
+
+let numeros = ["zero", "primero", "segundo", "tercero"];
+
+resultado = numeros.filter(numero => numero.length > 5);
+document.write(resultado);
+
+/*
+*
+*   numeros.filter((numero) => {
+*      document.write(numero + "<br>");
+*   })
+*
+*   numeros.filter(function(numero){
+*       document.write(numero + "<br>");
+*   })
+*
+*
+*/
+
+/*
+*                               Objeto Math - Básico
+*
+*   _________MÉTODOS_________
+*   sqrt() - Devuelve la raíz cuadrada positiva de un número.
+*   cbrt() - Devuelve la raíz cúbica de un número.
+*   max() - Devuelve el mayor de 0 ó más números.
+*   min() - Devuelve el menos de 0 ó más números.
+*   random() - Devuelve un número pseudo-aleatorio entre 0 y 1.
+*   round() - Devuelve un numero redondeado al numero entero mas cercano.
+*   fround() - Devuelve la representación flotante de precisión más cercana de un número.
+*   frloor() - Devuelve el mayor entero, menor que ó igual a un número
+*   trunc() - Devuelve la parte entera de un numero x, la eliminación de los dígitos fraccionarios
+*
+*   _________PROPIEDADES_________
+*   PI - Ratio de la circunferencia de un circulo respecto a su diametro, aporx. 3.14159.
+*   SQRT1_2 - Raíz cuadrada de 1/2; Equivalente, 1 sobre la raiz cuadrada de 2, aprox 0.707.
+*   SQRT2 - Raíz cuadrada de 2, aproxim. 1.414.
+*   
+*   E - Constante de Euler, la base ed los logaritmos naturales, aprox 2.718
+*   LN2 - Logaritmo natural de 2, aproximadamente 0.693
+*   LN10 - Logaritmo natural de 10, aproximadamente 2.303
+*   LOG2E - Logaritmo de E con base 2, aprox. 1.443
+*   LOG10E - Logaritmo de E con base 10, aprox. 0.434
+*
+*/
+
+document.write("<br>");
+document.write("<br>");
+
+/*Ejemplo de generar numeros aleatorios redondeados sin que salga el 0 ni el 100*/
+for (let i = 0; i < 100; i++) { 
+    let num = Math.random() * 99;
+    num = Math.floor(num+1);
+    
+    document.write(num + "<br>");    
+}
+
+
 
 
