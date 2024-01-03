@@ -61,3 +61,4 @@ inscribir("Pedrito", "fisica");
 
 document.write("<br><br>")
 document.write(materias["fisica"].join(", "));
+
