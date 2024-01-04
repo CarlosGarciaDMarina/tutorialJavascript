@@ -18,8 +18,26 @@
 *    - querySelectorAll() - Devuelve todos los elementos que coincidan con el grupo especificado de selectores.
 *
 *
-*   +Métodos para Definir, Obtener y Eliminar valores de atributos
+*   + Métodos para Definir, Obtener y Eliminar valores de atributos
 *    - setAttribute() - Modifíca el valor de un atributo.
 *    - getAttribute() - Muestra el valor de un atributo.
 *    - removeAttribute() - Borra el valor de un atributo.
 */
+
+let parrafo = document.querySelector(".parrafo");
+
+document.write(parrafo); 
+
+const rangoEtario = document.querySelector(".rangoEtario");
+
+const valorAtributo = rangoEtario.getAttribute("type");
+
+/* el primer parametro es lo que queremos modificar, el segundo es el que queremos */
+ 
+rangoEtario.setAttribute("type", "color"); 
+
+document.write(valorAtributo);
+
+const titulo = document.querySelector(".titulo");
+titulo.setAttribute("contentEditable", "true");
+titulo.setAttribute("dir", "rtl");
