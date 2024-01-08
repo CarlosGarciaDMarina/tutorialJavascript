@@ -41,3 +41,33 @@ document.write(valorAtributo);
 const titulo = document.querySelector(".titulo");
 titulo.setAttribute("contentEditable", "true");
 titulo.setAttribute("dir", "rtl");
+
+/*
+*   ##################### Atributos ####################
+*
+*   Atributos Globales
+*    - contentEditable - Indica si el elemento puede ser modificable por el usuario (bool)
+*    - dir - Indica la direccionalidad del texto.
+*    - hidden - Indica si el elemento es relevante o no.
+*    - tabindex - Indica si el elemento puede obtener un focus de input.
+*    - title - Contiene un texto con informacion relacionada al elemento al que pertenece
+*    
+*
+*   Atributos de inputs
+*    - className 
+*    - value 
+*    - type 
+*    - accept 
+*    - form
+*    - minLength
+*    - placeholder
+*    - required
+*
+*   Atributo style
+*    - usos y ejemplos
+*    - propiedades CamelCase
+*    
+*/
+
+const input = document.querySelector(".input-normal");
+input.accept = "image/png";
