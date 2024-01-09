@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Questrial&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 45px;
+    color: #4d4dff;
+    font-family: 'Roboto', sans-serif;
+    filter: drop-shadow(0px 0px 0.5px #000) ;
+}
+
+.enunciado {
+    font-size: 20px;
+    color: #2527FF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+
+h3 {
+    color: #888;
+}
+
+p {
+    color: #666;
+}
+
+p b {
+    color: #4d4dff;
+}
+
+.flex-item {
+    flex-grow: 1;
+    flex-basis: 150px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 195px;
+    border: 2px solid #333;
+}
+
+.flex-item:hover {
+    border-color: #2527FF;
+    box-shadow: 0px 0px 13px #2526FF;
+}
+
+.flex-item:focus {
+    border-color: #2527FF;
+    box-shadow: 0px 0px 13px #2526FF;
+}
+
+.llave-img {
+    width: 150px;
+
+}
+
+form {
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+}
+
+input[type="submit"]{
+    background-color: #4d4dff;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+}

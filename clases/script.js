@@ -72,3 +72,13 @@ for (let i = 0; i < 21; i++) {
     
 }
 contenedor.appendChild(fragmento);
+
+
+/* Padres e hijos */
+const contenedorDos = document.querySelector(".contenedor-dos");
+
+const hijos = contenedorDos.children;
+
+for (hijo of hijos){
+    console.log(hijo);
+}
