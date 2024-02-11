@@ -86,6 +86,24 @@ saludamos(nombre);
 *       
 */
 
+/*
+*            Parametros REST y SPREAD
+*
+*   function listadoFrutas(fruta1, fruta2, ...resto_de_frutas){
+*       console.log("Fruta 1: ", fruta1); 
+*       console.log("Fruta 2: ", fruta2); 
+*       console.log(resto_de_frutas); 
+*   }
+*
+*   listadoFrutas("Naranja", "Manzana", "Pera", "Sandia", "Platano", "Melocoton");
+*
+*   * LOS 3PUNTOS EN LA FUNCION INDICAN QUE TODO LO QUE HAYA DEMÁS SE AÑADA EN FORMA DE ARRAY*
+*
+*    var frutas = ["Naranja", "Manzana"];
+*   listadoFrutas(...frutas, "Pera", "Sandia", "Platano", "Melocoton");
+*    * LOS 3PUNTOS AL PASAR LOS DATOS A LA FUNCION INDICAN QUE TODO LO QUE HAYA EN LA VAR FRUTAS VA A SER INTRODUCIDO SIN SER ARRAY*
+*/
+
 
 /*
 *                               PRACTICA 1
