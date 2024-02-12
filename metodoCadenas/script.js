@@ -6,13 +6,15 @@
 *   endsWith() - lo contrario a starsWith()
 *   includes() - si una cadena puede encontrarse dentro de otra cadena, devuelve true, sino, devuelve false
 *   indexOf() - devuelve el indice del primer caracter de la cadena, si no existe, devuelve -1
-*   lasIndexOf() - devuelve el último índice del primer caracter de la cadena, si no existe, devuelve -1
+*   lastIndexOf() - devuelve el último índice del primer caracter de la cadena, si no existe, devuelve -1
 *
 *   padStart() [propuesta de Estandar] - Rellenar cadena al principio con los caracteres deseados
 *   padEnd() [propuesta de ECMA] - Rellenar cadena al final con los caracteres deseados
 *   repeat() - Devuelve la misma cadena pero repetida la cantidad que le indiquemos
 *
-*   split() -divide la cadena como la pidamos
+*   split() - divide la cadena como lo pidamos
+*   slice(principio, final) - divide la cadena desde el indice que queramos hasta el indice que le pidamos
+*   replace("palabra que quieres reemplazar", "palabra que va a reemplazarla") - reemplaza una palabra de un texto por otra que quieras
 *   substring() - Nos retorna un pedazo de la cena que seleccionamos
 *   toLowerCase() - Convierte una cadena a minúscula
 *   toUpperCase() - Convierte una cadena a mayúscula
@@ -21,6 +23,9 @@
 *   trimEnd() - Elimina los espacios en blanco al final de una cadena.
 *   trimStart() - Elimina los espacios en blanco al princio de una cadena.
 *   valueOf() - Retorna el valor primitivo de una cadena
+*   match() - Nos devuelve una coleccion en un array del elemento que le pidamos con el indice en el que se encuentran
+*   charAt() - Sirve para sacar una letra en concreto (en la posicion que le pidamos)
+*   match() - Nos devuelve una coleccion en un array del elemento que le pidamos con el indice en el que se encuentran
 *
 */
 

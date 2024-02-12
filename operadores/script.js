@@ -61,8 +61,3 @@ let texto2  = "Hola";
 
 document.write(texto === numero3);
 document.write("<br>");
-
-
-
-
-

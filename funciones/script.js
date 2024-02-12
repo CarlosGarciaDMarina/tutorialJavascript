@@ -103,7 +103,6 @@ saludamos(nombre);
 *   listadoFrutas(...frutas, "Pera", "Sandia", "Platano", "Melocoton");
 *    * LOS 3PUNTOS AL PASAR LOS DATOS A LA FUNCION INDICAN QUE TODO LO QUE HAYA EN LA VAR FRUTAS VA A SER INTRODUCIDO SIN SER ARRAY*
 */
-
 /*
 *            FUNCIONES ANONIMAS Y CALLBACKS
 *
@@ -123,14 +122,6 @@ saludamos(nombre);
 *       console.log("La suma por dos es: ", (dato*2));
 *
 *   });
-*
-*   listadoFrutas("Naranja", "Manzana", "Pera", "Sandia", "Platano", "Melocoton");
-*
-*   * LOS 3PUNTOS EN LA FUNCION INDICAN QUE TODO LO QUE HAYA DEMÁS SE AÑADA EN FORMA DE ARRAY*
-*
-*    var frutas = ["Naranja", "Manzana"];
-*   listadoFrutas(...frutas, "Pera", "Sandia", "Platano", "Melocoton");
-*    * LOS 3PUNTOS AL PASAR LOS DATOS A LA FUNCION INDICAN QUE TODO LO QUE HAYA EN LA VAR FRUTAS VA A SER INTRODUCIDO SIN SER ARRAY*
 */
 
 
