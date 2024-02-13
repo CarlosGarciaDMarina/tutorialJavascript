@@ -25,7 +25,6 @@
 *   valueOf() - Retorna el valor primitivo de una cadena
 *   match() - Nos devuelve una coleccion en un array del elemento que le pidamos con el indice en el que se encuentran
 *   charAt() - Sirve para sacar una letra en concreto (en la posicion que le pidamos)
-*   match() - Nos devuelve una coleccion en un array del elemento que le pidamos con el indice en el que se encuentran
 *
 */
 
