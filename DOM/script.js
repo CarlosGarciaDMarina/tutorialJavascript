@@ -22,6 +22,11 @@
 *    - setAttribute() - Modifíca el valor de un atributo.
 *    - getAttribute() - Muestra el valor de un atributo.
 *    - removeAttribute() - Borra el valor de un atributo.
+*    - textContent - devuelve lo que hay escrito en el elemento.
+*    - innerHTML - te permite asignar un valor nuevo al contenido.
+*    - append() - agrega un elemento al documento html despues de 
+*    - appendChild() - agrega un elemento hijo al padre en el dom HTML
+*    - prepend() - agrega un elemento al documento html antes de 
 */
 
 let parrafo = document.querySelector(".parrafo");
