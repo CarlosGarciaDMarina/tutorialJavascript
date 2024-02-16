@@ -71,6 +71,38 @@ window.addEventListener('load', () => {
     input.addEventListener('keyup', function(event){
         console.log("[KeyUp]", String.fromCharCode(event.keyCode));
     });
+
+    // Timers
+    function intervalo() {
+        var tiempo = setInterval(function() {
+
+            console.log("Set interval ejecutado");
+        
+            var encabezado = document.querySelector("h1");
+            var colorActual = window.getComputedStyle(encabezado).color;
+        
+            if (colorActual === "rgb(248, 111, 111)") {
+                encabezado.style.color = "#759eff";
+            } else {
+                encabezado.style.color = "#f86f6f";
+            }
+        }, 500);
+
+        return tiempo;
+    }
+
+    var tiempoEnEjecucion;
+    var stop = document.querySelector("#stop");
+    var start = document.querySelector("#start");
+
+    stop.addEventListener("click", () =>{
+        alert("Has parado el intervalo en bucle");
+        clearInterval(tiempoEnEjecucion);
+    });
+
+    start.addEventListener("click", () => {
+        alert("Has iniciado el intervalo en bucle");
+        tiempoEnEjecucion = intervalo();
+    });
     
 }); // end load
-
