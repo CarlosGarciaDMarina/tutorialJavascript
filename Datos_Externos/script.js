@@ -1,57 +1,32 @@
-// Local Storage
+'use strict';
+// Fetch y petciones a servicios / apis rest
 
 window.addEventListener('load', function() {
     // Comprobamos que funciona el load
     console.log("DOM cargado!!");
 
-    // Capturamos el formulario
-    var formulario = document.querySelector("#form_peliculas");
+    var div_usuarios = document.querySelector("#usuarios");
 
-    //Creamos el evento de submit
-    formulario.addEventListener('submit', function(){
-        //Comprobamos si entra en el evento
-        console.log("Entra");
+    var usuarios = [];
 
-        //Almacenamos el valor del campo de texto en la variable titulo
-        var titulo = document.querySelector('#add_pelicula').value;
+    // Este metodo Fetch lo que hace es acceder a unos datos remotos, hace una peticion y se queda a la espera de que, cuando recibamos esos datos, los convirtamos a json
+    fetch('https://reqres.in/api/users')
+        .then(data => data.json()) // convertimos los datos a json
+        .then(users => {
+            usuarios = users.data;
+            console.log(usuarios);
 
-        //Creamos un condicional para gestionar errores
-        if (titulo.length >= 1) {
-            //Lo almacenamos
-            localStorage.setItem(titulo, titulo);
-        }
-    });// End event submit
+            usuarios.map((user, i) => {
+                let nombre = document.createElement('h2');
 
-        // Capturamos el formulario
-        var formulario_b = document.querySelector("#form_borrar_peliculas");
+                nombre.innerHTML = i+ ". " + user.first_name + " " + user.last_name;
 
-        //Creamos el evento de submit
-        formulario_b.addEventListener('submit', function(){
-            //Comprobamos si entra en el evento
-            console.log("Entra");
-    
-            //Almacenamos el valor del campo de texto en la variable titulo
-            var titulo = document.querySelector('#borrar_pelicula').value;
-    
-            //Creamos un condicional para gestionar errores
-            if (titulo.length >= 1) {
-                //Lo almacenamos
-                localStorage.removeItem(titulo);
-            }
-        });// End event submit
+                div_usuarios.appendChild(nombre);
 
-    var ul = document.querySelector('#peliculas_list');
+                document.querySelector(".load").style.display = 'none';
+            });
 
-    //Recorremos el local storage
-    for (const index in localStorage) {
-        //Solamente añadirá si lo que estamos introduciendo son strings
-        if (typeof localStorage[index] == 'string') {
-            var li = document.createElement("li");//Creamos el elemento li
-            li.append(localStorage[index]); //Lo añadimos al body con el append
-            ul.append(li);
-        }
-
-    }
+        });
 
 
 
