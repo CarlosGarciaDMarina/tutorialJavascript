@@ -28,6 +28,7 @@ window.addEventListener('load', () => {
     // Evento onClick
     boton.addEventListener('click', function() {
         cambiarColor();
+        this.style.border = "5px solid #000";// this hace referencia al elemento donde estas clicando
     });
 
     // Mouse hover

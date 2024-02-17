@@ -16,7 +16,26 @@ window.addEventListener('load', function() {
         // Le damos a cada variable su valor
         var nombre = document.querySelector("#nombre").value;
         var apellidos = document.querySelector("#apellidos").value;
-        var edad = document.querySelector("#edad").value;
+        var edad = parseInt(document.querySelector("#edad").value);
+        var error_nombre = document.querySelector("#error_nombre");
+
+        // Hacemos un condicional para comprobar que los datos introducidos por el usuario son correctos
+        if (nombre.trim() == null || nombre.trim().length == 0) {
+            alert("El nombre no es valido");
+            error_nombre.style.color = "#FF0000";
+            error_nombre.innerHTML = "El nombre que has introducido no es valido"
+            return false;
+        } else {
+            error_nombre.style.display = "none";
+        }
+        if (apellidos.trim() == null || apellidos.trim().length == 0) {
+            alert("Los apellidos no son validos");
+            return false;
+        }
+        if (edad == null || edad <= 0 || isNaN(edad)) {
+            alert("La edad no es valida");
+            return false;
+        }
 
         // Mostramos la caja
         box_dashed.style.display = "block";

@@ -29,14 +29,15 @@
             1. Formulario campos: Nombre, Apellidos y edad.
             2. Boton de enviar el formulario: eventos submit.
             3. Mostrar datos por pantalla.
-            4. Tener un botón que al darle click nos muestre los datos actuales del formulario
+            4. Validación del formulario.
         -->
         <h1>Ejercicio DOM, Eventos y Funciones - CUrso de JS</h1>
 
         <div class="box">
             <form action="#" method="POST" id="formulario" onsubmit="return false">
-                <label for="nombre">Nombre:</label> <br/>
-                <input type="text" name="nombre" id="nombre" /><br/>
+                <label for="nombre">Nombre:</label><br/>
+                <input type="text" name="nombre" id="nombre"/><br/>
+                <span id="error_nombre"></span><br/>
 
                 <label for="apellidos">Apellidos:</label><br/>
                 <input type="text" name="apellidos" id="apellidos" /><br/>
