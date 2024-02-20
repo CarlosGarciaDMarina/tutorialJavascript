@@ -1,6 +1,8 @@
 'use strict';
 
-// Esperamos a que el DOM esté completamente cargado
+// Fetch y petciones a servicios / apis rest / Gestion de errores 
+
+
 // Esperamos a que el DOM esté completamente cargado
 window.addEventListener('load', function() {
     console.log("DOM cargado!!");
@@ -117,7 +119,6 @@ window.addEventListener('load', function() {
 
 /*
 'use strict';
-// Fetch y petciones a servicios / apis rest
 
 window.addEventListener('load', function() {
 
