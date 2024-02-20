@@ -1,7 +1,6 @@
 'use stricts'
 
 var fecha = new Date();
-
 var year = fecha.getFullYear();
 var mes = fecha.getMonth();
 var dia = fecha.getDate()
