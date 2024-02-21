@@ -18,14 +18,46 @@
             .zebra{
                 border: 5px dashed #000;
             }
-        </style>
 
+            .grande{
+                transform: scale(1.5);
+            }
+
+            .margen-superior{
+                display: block;
+                margin-top: 20px;
+            }
+
+            .resaltado{
+                border-bottom: 2px solid green;
+            }
+
+        </style>
     </head>
     <body>
         <h1 id="titulo" style="display: block; text-align: center; justify-content: center; font-size: 50px;">jQuery - Selectores</h1>
+
+        <ul>
+            <li><a href="https://www.google.es" title="Google">Clickame para ir a Google</a></li>
+            <li><a href="https://www.facebook.es" title="Facebook">Clickame para ir a Facebook</a></li>
+        </ul>
+
         <p id="rojo" class="sin_borde" style="display: block; text-align: center; justify-content: center;">Soy un parrafo Rojo</p>
         <p id="amarillo" class="zebra" style="display: block; text-align: center; justify-content: center;">Soy un parrafo Amarillo</p>
         <p id="verde" class="sin_borde" style="display: block; text-align: center; justify-content: center;">Soy un parrafo Verde</p>
         <p id="blanco" class="zebra" style="display: block; text-align: center; justify-content: center;"> Soy un parrafo blanco</p>
+
+        <div id="caja">
+            <p>Hola soy una caja</p>
+            <ul>
+                <li>
+                    Elemento 1
+                </li>
+                <li id="elemento2">
+                    Elemento 2
+                </li>
+            </ul>
+            <span class="resaltado">Soy un span</span>
+        </div>
     </body>
 </html>

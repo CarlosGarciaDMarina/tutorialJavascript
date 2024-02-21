@@ -35,4 +35,40 @@ $(document).ready(function() {
      * Con eq - mi_clase.eq(1)
      * con el metodo eq podemos hacer mas cosas ya que tenemos los elementos de jQuery para poder trabajar
      */
+
+    // Selectores de etiquetas
+    var parrafos = $('p').css("cursor", "pointer");
+
+    parrafos.click(function() { 
+        // para optimizar la carga vamos aencerrar el $(this) en una variable
+        var that = $(this);
+
+        // Este condicional busca si, la etiqueta donde clicas tiene la clase zebra, si la tiene borra la clase grande
+        if(!that.hasClass('grande')){
+            that.addClass('grande');
+        }else{
+            that.removeClass('grande');
+        }
+    });
+
+    // Selectores de atributos
+    $('[title= "Google"]').css("background", "#ccc");
+    $('[title= "Facebook"]').css("background", "blue");
+
+    // Otros selectores
+    $('p, a').addClass('margen-superior');
+
+    //Con find podemos seleccionar que vamos a buscar y con parent le decimos que damos un salto al elemento padre
+    var busqueda = $("#elemento2").parent().parent().find('.resaltado');
+
+    //Mostramos el resultado
+    console.log(busqueda);
+
+
+
+
+
+
+
+
 });
