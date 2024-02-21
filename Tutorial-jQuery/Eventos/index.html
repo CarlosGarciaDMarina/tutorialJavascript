@@ -29,11 +29,47 @@
                 background-color: red;
             }
 */
+
+            input{
+                padding: 10px;
+                width: 300px;
+                font-size: 20px;
+            }
+
+             #datos{
+                border: 4px dashed black;
+                padding: 10px;
+                width: 250px;
+                height: 50px;
+                margin-top: 10px;
+                display: none;
+             }
+
+             #sigueme{
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                display: block;
+                background-color: yellow;
+                opacity: 0.5;
+                border-radius: 50px;
+                border: 3px solid #000;
+             }
         </style>
 
     </head>
     <body>
         <h1 id="titulo" style="display: block; text-align: center; justify-content: center; font-size: 50px;">jQuery - Eventos</h1>
+
+        <form>
+            <input type="text" id="nombre" />
+        </form>
+
+        <div id="sigueme"></div>
+
+        <div id="datos"></div>
+
+        <br>
 
         <div id="caja">
             Soy una caja
