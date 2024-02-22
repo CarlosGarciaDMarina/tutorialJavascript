@@ -23,7 +23,10 @@ $(document).ready(function(){
         $(this).hide(); //Ocultamos el boton de ocultar
         $('#mostrar').show(); //Mostramos el boton de mostrar
 
-        caja.hide('fast');
+        // Si queremos podemos añadir un callback como segundo parametro de la funcion
+        caja.hide('fast', function(){
+            console.log("Panel ocultado.");
+        });
 
         //$('#caja').fadeOut('slow');
         //$('#caja').slideUp('slow');
@@ -57,7 +60,5 @@ $(document).ready(function(){
                       marginTop: '5px'
                     }, 'slow'); 
     });
-
-
 
 });
