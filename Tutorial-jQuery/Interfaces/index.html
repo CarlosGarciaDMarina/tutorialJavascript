@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>jQuery UI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--CSS-->
+        <link rel="stylesheet" href="">
+        <!--jQuery-->
+        <script type="text/javascript" src="../Libreria-jQuery/jQ/jquery-3.7.1.min.js"></script> 
+        <!--Para el elemeento resizable necesitamos cargar una libreria antes de la de UI-->
+        <link rel="stylesheet" href="../Libreria-jQuery/jQ/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.css" />
+        <link rel="stylesheet" href="../Libreria-jQuery/jQ/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.structure.min.css" />
+        <link rel="stylesheet" href="../Libreria-jQuery/jQ/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.theme.min.css" />
+        <!--jQueryUI-->
+        <script type="text/javascript" src="../Libreria-jQuery/jQ/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script> 
+        <!--JavaScript-->
+        <script type="text/javascript" src="../Libreria-jQuery/jQ/06-interfaces.js"></script> 
+        <!--Styles-->
+
+        <style>
+            .elemento{
+                width: 300px;
+                height: 250px;
+                border: 4px solid #000;
+                background-color: aquamarine;
+                margin: 20px;
+                float: left;
+            }
+
+            .lista-seleccionable li{
+                width: 80%;
+                padding: 20px;
+                border: 1px solid #ccc;
+                list-style: none;
+                cursor: pointer;
+            }
+
+            ul .ui-selecting{
+                background: green;
+            }
+            ul .ui-selected{
+                background: lightblue;
+            }
+
+            #elemento-movido{
+                width: 100px;
+                height: 100px;
+                border: 4px solid #FF0000;
+            }
+
+            #area{
+                width: 300px;
+                height: 300px;
+                border: 4px solid green;
+            }
+            .elemento{
+                background-color: pink;
+                float: none;
+                display: none;
+            }
+
+        </style>
+
+
+    </head>
+    <body>
+        <h1 style="display: block; text-align: center; justify-content: center; font-size: 50px;">jQuery - Interfaz JQUERY UI</h1>
+
+
+
+        <button id="mostrar">Mostrar</button>
+        <div class="caja-efectos elemento">
+
+        </div>
+
+        <div id="elemento-movido"></div>
+        <br>
+        <div id="area">
+
+        </div>
+
+
+        <ul class="lista-seleccionable">
+            <li>
+                Baldurs Gate 3
+            </li>
+            <li>
+                Honkai Impact 3rd
+            </li>
+            <li>
+                Honkai Star Rail
+            </li>
+            <li>
+                Terraria
+            </li>
+            <li>
+                Palworld
+            </li>
+        </ul>
+
+
+        <div class="elemento">
+            Hola, soy un elemento web 1
+        </div>        
+        <div class="elemento">
+            Hola, soy un elemento web 2
+        </div>
+        <div class="elemento">
+            Hola, soy un elemento web 3
+        </div>
+
+
+    </body>
+</html>
