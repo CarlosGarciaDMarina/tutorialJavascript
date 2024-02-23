@@ -40,6 +40,30 @@ $(document).ready(function () {
 */        
     });
 
+    // Tooltips Es como un cuadrito informativo que se usar a traves del elemento title de html
+    $(document).tooltip();
+
+    //Pop up
+    $("#lanzar").click(function() {
+        $("#popup").dialog();
+    })
+
+    //Datepicker
+    $("#calendario").datepicker();
+
+    //Tabs
+    $("#tabs").tabs();
+
+
+
+
+
+
+
+
+
+
+
 
 
 
