@@ -25,8 +25,6 @@ import Zapateria = Tienda.Zapateria;
 
 let cargar_zapateria = new Zapateria(' La zapateria');
 
-
-
 // Decorador - sirve para adicionar una funcionalidad extra a cualquier clase
 function estampar(logo:string) {
     return function(target: any) {
