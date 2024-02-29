@@ -1,17 +1,27 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Zapatilla } from "../models/zapatilla";
 
 @Component({
     selector: 'zapatillas',
     templateUrl: './zapatillas.component.html'
 })
-export class ZapatillasComponent {
+export class ZapatillasComponent implements OnInit {
 
-    public titulo: string;
+    public titulo: string = "Componente de Zapatillas";
+    public zapatillas: Array<Zapatilla>;
 
     constructor(){
-
-        this.titulo = "Componente de Zapatillas";
-        console.log("Se ha cargado el componente de Zapatillas con éxito.");
-
+        this.zapatillas = [
+            new Zapatilla('Reebook Classic', 'Reebook', 'Blanco', 80, true),
+            new Zapatilla('Nike Airmax', 'Nike', 'Rojas', 190, true),
+            new Zapatilla('Nike Runner MD', 'Nike', 'Negras', 70, true),
+            new Zapatilla('Adidas Yezzy', 'Adidas', 'Gris', 180, false)
+        ]
     }
+
+    ngOnInit(): void {
+        console.log(this.zapatillas);
+    }
+
+
 }

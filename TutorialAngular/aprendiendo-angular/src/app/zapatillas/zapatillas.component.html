@@ -1,6 +1,4 @@
 <h2>{{titulo}}</h2>
 <ul>
-    <li>Adidas</li>
-    <li>Nike</li>
-    <li>Rebook</li>
+    <li *ngFor="let deportiva of zapatillas">{{deportiva.nombre}} - <strong>{{deportiva.precio}}</strong></li>
 </ul>
