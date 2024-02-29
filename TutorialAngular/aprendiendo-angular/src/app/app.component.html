@@ -228,7 +228,10 @@
       <h1>Este es el proyecto {{ title }}, aqui haremos las primeras pruebas con Angular</h1>
       <p>Congratulations! Your app is running. 🎉</p>
 
-      <videojuego></videojuego>
+      <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar</button>
+      <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">Mostrar</button>
+
+      <videojuego *ngIf="mostrar_videojuegos"></videojuego>
       <zapatillas></zapatillas>
       <cursos></cursos>
 
