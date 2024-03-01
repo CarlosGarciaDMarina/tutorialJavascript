@@ -10,8 +10,12 @@ export class ZapatillasComponent implements OnInit {
     public titulo: string = "Componente de Zapatillas";
     public zapatillas: Array<Zapatilla>;
     public marcas: String[];
+    public color: string;
+    public mi_marca: string;
 
     constructor(){
+        this.mi_marca = "Fila";
+        this.color = 'yellow';
         this.marcas = new Array;
         this.zapatillas = [
             new Zapatilla('Reebook Classic', 'Reebook', 'Blanco', 80, true),
@@ -36,6 +40,27 @@ export class ZapatillasComponent implements OnInit {
         });
 
         console.log(this.marcas);
+    }
+
+    getMarca(){
+        alert(this.mi_marca);
+    }
+
+    addMarca(){
+        this.marcas.push(this.mi_marca);
+    }
+
+    borrarMarca(index:number){
+        // delete this.marcas[index]; //Sirve para borrar, lo vuelve undefined
+        this.marcas.splice(index,1); //Le pasamos el indice que queremos borrar y, a partir de ahí, cuantos elems quieres borrar
+    }
+
+    onBlur(){
+        console.log("Has salido del input.");
+    }
+
+    mostrarPalabra(){
+        alert("Has utilizado las teclas para escribir lo siguiente: " + this.mi_marca);
     }
 
 }
