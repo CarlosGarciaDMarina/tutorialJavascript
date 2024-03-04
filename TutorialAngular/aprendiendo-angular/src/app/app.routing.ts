@@ -9,6 +9,7 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { VideojuegoComponent } from './videojuego/videojuego.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { ExternoComponent } from './externo/externo.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 // Array de rutas
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path: 'cursos/:nombre', component: CursosComponent}, // Ruta cursos con opcion a recoger parametos
     {path: 'cursos/:nombre/:followers', component: CursosComponent}, // Ruta cursos con opcion a recoger parametos
     {path: 'externo', component: ExternoComponent},// Ruta externo
+    {path: 'contacto', component: ContactoComponent},// Ruta contacto
     {path: '**', component: HomeComponent} // Ruta 404, se define la última de todas porque si no se encuentra ninguno de nuestros componentes, esta va a ser la que cargue
 ];
 

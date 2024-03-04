@@ -11,7 +11,8 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component'; // Impo
 import { CursosComponent } from './cursos/cursos.component'; // Importa el componente CursosComponent
 import { HomeComponent } from './home/home.component'; // Importa el componente HomeComponent
 import { ExternoComponent } from './externo/externo.component'; // Importa el componente ExternoComponent
-import { CalculadoraPipe } from './pipes/calculador.pipe'; // Importamos nuestra pipe personalizada
+import { CalculadoraPipe } from './pipes/calculador.pipe';
+import { ContactoComponent } from './contacto/contacto.component'; // Importamos nuestra pipe personalizada
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CalculadoraPipe } from './pipes/calculador.pipe'; // Importamos nuestra
     CursosComponent, // Componente para la sección de cursos
     HomeComponent, // Componente para la página de inicio
     ExternoComponent, // Componente externo
-    CalculadoraPipe // Declaramos nuestro pipe personalizado
+    CalculadoraPipe, ContactoComponent // Declaramos nuestro pipe personalizado
   ],
   imports: [
     BrowserModule, // Proporciona funcionalidades básicas del navegador

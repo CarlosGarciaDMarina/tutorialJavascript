@@ -19,6 +19,15 @@ export class PeticionesService{
         return this._http.get(this.url+'api/users/' + userId); //Con esto estamos haciendo una peticion AJAX
     }
 
+    //Metodo para añadir un usuario en la api reqres.in
+    addUser(user: any): Observable<any> {
+        //Vamos a pasarle la peticion AJAX usando POST
+        let params = JSON.stringify(user);// Utilizamos JSON.stringify para convertir un objeto de javascript puro a json string (json)
+        let headers = new HttpHeaders().set('Content-Type', 'application/json'); //Configuramos las cabeceras y con el .set le decimos la peticion que va a ser(contenido, tipo)
+
+        return this._http.post(this.url + 'api/users', params, {headers: headers}); // Enviamos la peticion por post
+    }
+
 
 
 
