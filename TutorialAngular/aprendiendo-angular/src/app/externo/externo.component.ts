@@ -11,6 +11,7 @@ export class ExternoComponent {
 
   public user: any;
   public userId: any;
+  public fecha:any;
 
   constructor(
     private _peticionesService: PeticionesService
@@ -20,6 +21,9 @@ export class ExternoComponent {
   }
 
   ngOnInit(){
+    //Pipe para fecha
+    this.fecha = new Date();
+
     // Llamamos al metodo por default
     this.cargaUsuario();
   }

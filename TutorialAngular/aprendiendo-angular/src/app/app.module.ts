@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'; // Importa el decorador NgModule para 
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser'; // Importa el módulo BrowserModule para funcionalidades básicas del navegador y provideClientHydration para la hidratación del cliente
 import { FormsModule } from '@angular/forms'; // Importa el módulo FormsModule para trabajar con formularios en Angular
 import { routing, appRoutingProviders } from './app.routing'; // Importa las rutas definidas en app.routing
-import { HttpClientModule } from '@angular/common/http'; // Necesario para trabajar con peticiones AJAX
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http'; // Necesario para trabajar con peticiones AJAX
 
 import { AppRoutingModule } from './app-routing.module'; // Importa el módulo de enrutamiento principal
 import { AppComponent } from './app.component';// Importa el componente raíz de la aplicación
@@ -11,6 +11,7 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component'; // Impo
 import { CursosComponent } from './cursos/cursos.component'; // Importa el componente CursosComponent
 import { HomeComponent } from './home/home.component'; // Importa el componente HomeComponent
 import { ExternoComponent } from './externo/externo.component'; // Importa el componente ExternoComponent
+import { CalculadoraPipe } from './pipes/calculador.pipe'; // Importamos nuestra pipe personalizada
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExternoComponent } from './externo/externo.component'; // Importa el co
     ZapatillasComponent, // Componente para la sección de zapatillas
     CursosComponent, // Componente para la sección de cursos
     HomeComponent, // Componente para la página de inicio
-    ExternoComponent // Componente externo
+    ExternoComponent, // Componente externo
+    CalculadoraPipe // Declaramos nuestro pipe personalizado
   ],
   imports: [
     BrowserModule, // Proporciona funcionalidades básicas del navegador
@@ -30,7 +32,8 @@ import { ExternoComponent } from './externo/externo.component'; // Importa el co
   ],
   providers: [
     provideClientHydration(),
-    appRoutingProviders // Proveedor para la configuración de las rutas de la aplicación
+    appRoutingProviders, // Proveedor para la configuración de las rutas de la aplicación
+    provideHttpClient(withFetch()) // Configura HttpClient con fetch
   ],
   bootstrap: [AppComponent] // Componente raíz de la aplicación
 })
