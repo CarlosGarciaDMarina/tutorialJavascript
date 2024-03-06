@@ -13,7 +13,8 @@ var ProjectSchema = Schema({
     description: String,
     category: String,
     year: Number,
-    langs: [String]
+    langs: String,
+    image: String
 });
 
 // Para poder exportarlo e importarlo en otros ficheros usamos el .exports

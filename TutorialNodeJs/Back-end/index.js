@@ -5,7 +5,7 @@ var app = require('./app'); // Cargamos la config de express que hemos configura
 var port = 3700; // Indicamos el puerto del servidor
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost//27017/portfolio')
+mongoose.connect("mongodb://localhost:27017/portfolio")
         .then(() => {
             console.log("Conexion establecida con exito.");
 
