@@ -1,6 +1,10 @@
 'use strict'
+const project = require('../models/project');
 //Necesitamos importar el modelo para poder usarlo en la creacion del proyecto
 var Project = require('../models/project');
+
+// Libreria File System
+var fs = require('fs');
 
 // Lo creamos en formato JSON
 var controller = {
@@ -42,31 +46,159 @@ var controller = {
 
     },
 
+    //Funcion para mostrar 1 proyecto dependiendo de la id introducida
     getProject: async function(req, res) {
+        // Guardamos el parametro id dentro de una variable
         var projectId = req.params.id;
-        let project;
-        if(projectId == null) return res.status(404).send({message: "El proyecto no existe"});
 
-        try {
-            project = await Project.find({}).sort('-year').exec();
-            return res.status(200).send({project});
-        } catch (err) {
-            return res.status(404).send({message: "El proyecto no existe", error: err});
-        }
+        // Usamos el metodo findByID y le pasamos la ID que va a recoger de la URL del proyecto
+        Project.findById(projectId)
+            .then((project) =>{ // Lo envolvemos en una promesa para capturar errores y hacer la llamada correctamente
+                if (!project) {
+                    // Si es distinto devolverá el mensaje
+                    return res.status(404).send({message: "El proyecto no existe."});
+                }
+                // Si sale bien
+                return res.status(200).send({project});
+            })
+            .catch((err) =>{
+                // Si encuentra un error
+                return res.status(500).send({message: "Ha ocurrido un error al devolver los datos", error: err});
+            });
     },
 
-    getProjects: async function(req, res) {
-        
-        try {
-            let projects = await Project.find({}).sort('-year').exec();
-            if(!projects) return res.status(404).send({message: 'No hay proyectos para mostrar'});
-            return res.status(200).send({projects});
-        } catch (err) {
-            return res.status(500).send({message: "Error al devolver los datos"});
+    //Funcion para mostrar todos los proyectos
+    getProjects: async function(req, res){
+        // Llamamos al proyecto y usamos el metodo find() que lo que hace es buscar todo, excepto si dentro del parantesis especificamos la busqueda, por ej. find({year:2019})
+        Project.find().sort('year') //El sort es para ordenar, si ponemos un - delante de year ('-year) lo ordena de mayor a menor
+            .then((projects) =>{ // Lo envolvemos en una promesa para capturar errores y hacer la llamada correctamente
+                if (!projects) {
+                    // Si es distinto devolverá el mensaje
+                    return res.status(404).send({message: "No hay proyectos para mostrar."});
+                }
+                // Si sale bien
+                return res.status(200).send({projects});
+            })
+            .catch((err) =>{
+                // Si encuentra un error
+                return res.status(404).send({message: "Ha ocurrido un error.", error: err});
+            });
+    },
+
+    //Funcion para actualizar una tabla en la base de datos
+    updateProject: async function(req, res){
+        // Creamos las variables donde vamos a almacenar la ID y el body con los parametros nuevos
+        var projectId = req.params.id; // Importante coger la id del params para que la recoja de la url
+        var update = req.body;
+
+        //Llamamos al proyecto y usamos el metodo findByIdAndUpdate()
+        Project.findByIdAndUpdate(projectId, update)
+            .then((projectUpdated) => { // Lo envolvemos en una promesa para capturar errores y hacer la llamada correctamente
+                if (!projectUpdated) {
+                    // Si es distinto devolverá el mensaje
+                    return res.status(404).send({message: "No se ha podido actualizar el proyecto porque no lo encuentra."});
+                }
+                // Si lo encuentra
+                return res.status(200).send({projectUpdated});
+
+            })
+            .catch((err) =>{
+                // Si encuentra un error
+                return res.status(500).send({message: "Ha ocurrido un error.", error: err});
+            });
+    },
+
+    // Funcion para borrar una tabla en la base de datos
+    deleteProject: async function(req, res){
+        var projectId = req.params.id; // Guardamos en una variable la id que le vamos a pasar por la url
+
+        Project.findByIdAndDelete(projectId)
+            .then((projectRemoved) =>{
+                if (!projectRemoved) {
+                    return res.status(404).send({message: "No se ha podido encontrar."});
+                }
+
+                return res.status(200).send({projectRemoved});
+            })
+            .catch((err) =>{
+                return res.status(500).send({message: "Ha ocurrido un error interno.", error: err});
+            });
+
+    },
+
+    // Funcion que sirve para subir una imagen a la base de datos
+    uploadImage: function(req, res){
+        var projectId = req.params.id; // Guardamos en una variable la id que le vamos a pasar por la url
+        var fileName = 'Imagen no subida...'; 
+
+        // si encuentra el archivo
+        if (req.files) {
+
+            var filePath = req.files.image.path; // Le pasamos la ruta de la imagen
+            var fileSplit = filePath.split('\\'); // usamos el metodo split par dividir en 2 la ruta a partir de las barras \\
+            var fileName = fileSplit[1]; // Guardamos la parte 1 del split
+            var extSplit = fileName.split('\.'); // Diidimos la ruta de nuevo a partir de \. para coger la extension
+            var fileExt = extSplit[1]; // cogemos la extension
+
+            // Establecemos un condicional para que, si no es una de esas extensiones, devuelva error.
+            if ((fileExt == 'png') || (fileExt == 'jpg') || (fileExt == 'jpeg') || (fileExt == 'gif')) {
+                
+                // Utilizamos el metodo findByIdAndUpdate para coger la id del objeto de la base de datos y actualizarlo con la imagen
+                project.findByIdAndUpdate(projectId, {image: fileName})
+                    .then((projectUpdated) =>{ // Lo envolvemos en una promesa para capturar errores y hacer la llamada correctamente
+                        if(!projectUpdated){
+                            // Si no lo encuentra devolvemos error 404
+                            return res.status(404).send({message: "El archivo no se encuentra."});
+                        }
+                        //Si lo encuentra updateamos
+                        return res.status(200).send({project: projectUpdated});
+                    })
+                    .catch((err) =>{ // Capturamos el error 
+                        return res.status(500).send({message: "Ha ocurrido un error interno.", error: err}); // Devolvemos msj de error
+                    });
+            } else {
+                // Si no es una extension valida no sube el archivo y devuelve error
+                fs.unlink(filePath, (err) => {
+                    return res.status(200).send({message: "La extension no es válida"});
+                });
+            }
         }
     }
-
 
 }; // End controller
 //Exportamos los controladores para poder utilizarlos fuera de este archivo
 module.exports = controller;
+
+/**
+ 
+
+    // Funcion que sirve para subir una imagen a la base de datos
+    uploadImage: function(req, res){
+        var projectId = req.params.id;
+        var fileName = 'Imagen no subida...';
+
+        if (req.files) {
+
+            var filePath = req.files.image.path;
+            var fileSplit = filePath.split('\\');
+            var fileName =fileSplit[1];
+
+            project.findByIdAndUpdate(projectId, {image: fileName})
+                .then((projectUpdated) =>{
+                    if(!projectUpdated){
+                        return res.status(404).send({message: "El archivo no se encuentra."});
+                    }
+
+                    return res.status(200).send({project: projectUpdated});
+                })
+                .catch((err) =>{
+                    return res.status(500).send({message: "Ha ocurrido un error interno.", error: err});
+                });
+        }
+    }
+
+
+
+
+
+ */
