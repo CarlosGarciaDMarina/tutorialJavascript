@@ -22,6 +22,14 @@ app.use(bodyParser.urlencoded({extended:false})); // La configuración
 app.use(bodyParser.json()); // Conversion a JSON
 
 // CORS
+// Configurar cabeceras y cors: Esto se va a ejecutar siempre antes de cada peticion de esta manera permitimos el accese de un dominio a otro
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // En el asterisco hay que poner la url permitida o los origines permitidos
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
 
 
 // Rutas
