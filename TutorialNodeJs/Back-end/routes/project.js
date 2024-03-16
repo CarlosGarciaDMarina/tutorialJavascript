@@ -18,5 +18,6 @@ router.get('/projects', ProjectController.getProjects);
 router.put('/project/:id', ProjectController.updateProject); // Creamos una ruta por put
 router.delete('/project/:id', ProjectController.deleteProject); // Creamos una ruta por delete
 router.post('/upload-image/:id', multipartMiddleware, ProjectController.uploadImage);
+router.get('/get-image/:image', ProjectController.getImageFile);
 
 module.exports = router;

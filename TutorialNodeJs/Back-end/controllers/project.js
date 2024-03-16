@@ -6,6 +6,9 @@ var Project = require('../models/project');
 // Libreria File System
 var fs = require('fs');
 
+// Es un modulo de js que nos deja acceder a las rutas fisicas de nuetro sistema de archivos
+var path = require('path');
+
 // Lo creamos en formato JSON
 var controller = {
 
@@ -163,42 +166,51 @@ var controller = {
                 });
             }
         }
-    }
+    },
+
+    // Función que sirve para devolver una imagen
+    getImageFile: function(req, res){
+        // Almacenamos el parametro en la variable file .image es el nombre de la imagen que la vamos a pasar por la url
+        var file = req.params.image;
+        // Almacenamos la ruta de la imagen en sí 
+        var path_file = "./uploads/" + file;
+
+        // Usamos la libreria de fs para saber si el path existe
+        fs.stat(path_file, (error) => {
+            // Creamos las condiciones
+            if(!error){
+                //Si el resultado es distinto de error enviamos la imagen
+                return res.sendFile(path.resolve(path_file));
+            }else {
+                // Si el resultado es un error mandamos un mensaje de error
+                return res.status(200).send({
+                    message: "No existe la imagen..."
+                });
+            }
+        });
+    } // End getImageFile
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }; // End controller
 //Exportamos los controladores para poder utilizarlos fuera de este archivo
 module.exports = controller;
 
-/**
- 
-
-    // Funcion que sirve para subir una imagen a la base de datos
-    uploadImage: function(req, res){
-        var projectId = req.params.id;
-        var fileName = 'Imagen no subida...';
-
-        if (req.files) {
-
-            var filePath = req.files.image.path;
-            var fileSplit = filePath.split('\\');
-            var fileName =fileSplit[1];
-
-            project.findByIdAndUpdate(projectId, {image: fileName})
-                .then((projectUpdated) =>{
-                    if(!projectUpdated){
-                        return res.status(404).send({message: "El archivo no se encuentra."});
-                    }
-
-                    return res.status(200).send({project: projectUpdated});
-                })
-                .catch((err) =>{
-                    return res.status(500).send({message: "Ha ocurrido un error interno.", error: err});
-                });
-        }
-    }
+/*
 
 
 
 
 
- */
+*/
