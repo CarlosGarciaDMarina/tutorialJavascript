@@ -32,7 +32,7 @@ class animal {
         this.especie = especie;
         this.edad = edad;
         this.color = color;
-        this.informacion = `Soy un ${this.especie}, tengo ${this.edad} años y soy de color ${this.color}`;
+        this.informacion = `<p>Soy un ${this.especie}, tengo ${this.edad} años y soy de color ${this.color}</p>`;
     }
 
     verInfo(){
